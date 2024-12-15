@@ -1,0 +1,527 @@
+/* ================================================================
+   General Styles
+   ================================================================ */
+
+/* Mengatur body untuk background image */
+body {
+    background: url('/img/dallean.jpg') no-repeat center center fixed;
+    background-size: cover;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* ================================================================
+   Login and Sign Up Page Styles
+   ================================================================ */
+
+.auth-page {
+    display: flex; /* Menggunakan flexbox */
+    align-items: center; /* Mengatur item vertikal di tengah */
+    justify-content: center; /* Mengatur item horizontal di tengah */
+    min-height: 100vh;
+}
+
+/* ================================================================
+   Login and Sign Up Box Styles
+   ================================================================ */
+
+/* Styles untuk kotak login dan sign up */
+.auth-page .container {
+    width: 100%;
+    max-width: 400px; /* Tetap 400px sesuai permintaan */
+    margin: 0 auto;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+.card-header {
+    background-color: transparent;
+    border-bottom: none;
+    text-align: center;
+    padding: 20px;
+}
+
+.card-header h4 {
+    margin: 0;
+    font-size: 24px;
+    color: #333;
+}
+
+.card-body {
+    padding: 20px;
+}
+
+.form-control {
+    border-radius: 5px;
+}
+
+.btn-block {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+}
+
+a {
+    color: #007bff;
+}
+
+a:hover {
+    color: #0056b3;
+    text-decoration: none;
+}
+
+/* ================================================================
+   Sidebar Styles
+   ================================================================ */
+
+/* Import Font Awesome untuk ikon */
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css');
+
+body {
+    overflow-x: hidden;
+}
+
+/* Sidebar */
+#wrapper #sidebar {
+    min-width: 250px;
+    max-width: 250px;
+    background: rgba(0, 0, 0, 0.8); /* Hitam transparan */
+    color: #fff;
+    transition: all 0.3s ease;
+    position: fixed;
+    top: 56px; /* Sesuaikan dengan tinggi navbar */
+    left: 0; /* Sidebar di kiri layar */
+    height: calc(100vh - 56px); /* Sesuaikan tinggi sidebar */
+    overflow-y: auto; /* Scroll jika konten terlalu panjang */
+    z-index: 999; /* Pastikan sidebar berada di bawah navbar */
+}
+
+/* Memusatkan teks di sidebar */
+#wrapper #sidebar .sidebar-header,
+#wrapper #sidebar ul.components li a {
+    text-align: center;
+}
+
+/* Header Sidebar */
+#wrapper #sidebar .sidebar-header {
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.9);
+}
+
+/* Menu Sidebar */
+#wrapper #sidebar ul.components {
+    padding: 20px 0;
+    margin: 0;
+    list-style: none;
+    border-bottom: 1px solid #47748b;
+}
+
+/* Item Menu */
+#wrapper #sidebar ul.components li a {
+    padding: 15px;
+    display: block;
+    color: #fff;
+    border: 1px solid rgba(255, 255, 255, 0.2); /* Border ringan */
+    margin: 10px 15px;
+    background-color: rgba(255, 255, 255, 0.1); /* Latar belakang sedikit transparan */
+    border-radius: 5px;
+}
+
+/* Hover effect untuk menu */
+#wrapper #sidebar ul.components li a:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    text-decoration: none;
+}
+
+/* Menghapus aturan tombol logout di sidebar */
+/* #sidebar .btn {
+    margin: 20px auto;
+    display: block;
+    width: 80%;
+} */
+
+#wrapper #sidebar.active {
+    margin-left: -250px;
+}
+
+#sidebar::-webkit-scrollbar {
+    width: 8px;
+}
+
+#sidebar::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 255, 255, 0.3);
+    border-radius: 4px;
+}
+
+#sidebar::-webkit-scrollbar-track {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+/* ================================================================
+   Page Content Styles
+   ================================================================ */
+
+#wrapper #page-content-wrapper {
+    width: 100%;
+    margin-left: 250px; /* Sesuaikan dengan lebar sidebar */
+    min-height: 100vh;
+    transition: all 0.3s ease;
+    background: rgba(0, 0, 0, 0.5); /* Hitam transparan */
+    color: #fff;
+    padding: 20px; /* Menambahkan padding untuk ruang */
+    position: relative; /* Pastikan posisi relatif */
+    z-index: 998;
+    overflow: hidden; 
+}
+
+/* Mengatur agar ketika sidebar aktif, konten tidak bergeser */
+#wrapper #page-content-wrapper.active {
+    margin-left: 0;
+}
+
+/* Menambahkan padding-top pada container untuk menghindari tertutup oleh navbar */
+#wrapper #page-content-wrapper .container-fluid {
+    padding-top: 70px; /* Sesuaikan dengan tinggi navbar */
+}
+
+/* Tabel dengan background terang */
+#wrapper #page-content-wrapper .table-light {
+    background-color: #f8f9fa; /* Warna latar belakang terang */
+    color: #212529; /* Warna teks gelap */
+}
+
+#wrapper #page-content-wrapper .table-light th {
+    background-color: #e9ecef; /* Warna latar belakang header */
+}
+
+#wrapper #page-content-wrapper .table-light tbody tr:nth-child(even) {
+    background-color: #f1f1f1; /* Warna latar belakang baris genap */
+}
+
+/* ================================================================
+   Responsive Styles
+   ================================================================ */
+
+@media (max-width: 768px) {
+    /* Sidebar */
+    #wrapper #sidebar {
+        margin-left: -250px;
+    }
+
+    #wrapper #sidebar.active {
+        margin-left: 0;
+    }
+
+    /* Page Content */
+    #wrapper #page-content-wrapper {
+        margin-left: 0;
+    }
+
+    #wrapper #page-content-wrapper.active {
+        margin-left: 250px;
+    }
+
+    /* Tombol Toggle */
+    #sidebarCollapse span {
+        display: none;
+    }
+}
+
+/* ================================================================
+   Additional Styles for Header and Dropdown Profile
+   ================================================================ */
+
+/* Menghilangkan border dan background tombol toggle */
+#sidebarCollapse {
+    border: none;
+    outline: none;
+    background: transparent;
+}
+
+/* Mengatur ukuran ikon hamburger */
+#sidebarCollapse i {
+    font-size: 1.5rem;
+}
+
+/* Menyesuaikan ikon profil */
+.dropdown .btn-link {
+    color: #fff;
+}
+
+.dropdown .btn-link:hover {
+    color: #ccc;
+}
+
+/* Styling Dropdown Menu */
+.dropdown-menu {
+    background-color: rgba(0, 0, 0, 0.9);
+}
+
+.dropdown-menu .dropdown-item {
+    color: #fff;
+}
+
+.dropdown-menu .dropdown-item:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* ================================================================
+   Header (Navbar) Styles
+   ================================================================ */
+
+/* Memastikan navbar berada di atas sidebar */
+.navbar {
+    z-index: 1000; /* Lebih tinggi daripada sidebar */
+}
+/* ================================================================
+   Sidebar Header Styles
+   ================================================================ */
+
+/* Mengatur tampilan link di sidebar header */
+#wrapper #sidebar .sidebar-header a {
+    display: flex;
+    align-items: stretch;
+    justify-content: center; /* Center items horizontally */
+    width: 100%; /* Span the full width */
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-decoration: none;
+    padding: 15px 0; /* Menyesuaikan padding vertikal */
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+#wrapper #sidebar .sidebar-header a:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    text-decoration: none;
+    color: #fff;
+}
+
+/* Menambahkan jarak antara ikon dan teks */
+#wrapper #sidebar .sidebar-header a i {
+    margin-right: 8px;
+}
+
+/* Warna teks link di sidebar header */
+#wrapper #sidebar .sidebar-header a {
+    color: #fff; /* Warna putih */
+}
+
+#wrapper #sidebar .sidebar-header a:hover {
+    color: #fff; /* Tetap putih saat hover */
+}
+
+.chart-container {
+    background-color: rgba(0, 0, 0, 0); /* Transparan */
+}
+
+.chart-canvas {
+    background-color: rgba(0, 0, 0, 0.5); /* Hitam transparan */
+}
+
+.chart-canvas-small {
+    height: 300px;
+}
+
+.chart-canvas-large {
+    height: 400px;
+}
+
+/* ================================================================
+   Category Page Styles
+================================================================ */
+
+/* Mengatur teks pada kontainer category-page menjadi justified */
+.category-page {
+    padding: 20px;
+    text-align: justify;
+}
+
+/* Menjaga judul tetap di tengah */
+.category-page h1,
+.category-page h1.my-4 {
+    text-align: justify;
+}
+
+/* Jika ada deskripsi, tetap justified */
+.category-page .description {
+    text-align: justify;
+}
+
+/* Mengatur teks dalam tabel tetap rata kiri */
+.category-page table th,
+.category-page table td {
+    text-align: left;
+}
+
+.category-page .table th {
+    background-color: #e9ecef;
+    color: #333;
+}
+
+.category-page .table tbody tr:nth-child(even) {
+    background-color: #f1f1f1;
+}
+
+/* Button styles */
+.category-page .btn {
+    border-radius: 5px;
+}
+
+.category-page .btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+}
+
+.category-page .btn-primary:hover {
+    background-color: #0056b3;
+    border-color: #004085;
+}
+
+/* Action buttons */
+.category-page .btn-sm {
+    padding: 5px 10px;
+    font-size: 14px;
+}
+
+.category-page .btn-info {
+    background-color: #17a2b8;
+    border-color: #17a2b8;
+}
+
+.category-page .btn-info:hover {
+    background-color: #117a8b;
+    border-color: #10707f;
+}
+
+.category-page .btn-warning {
+    background-color: #ffc107;
+    border-color: #ffc107;
+    color: #212529;
+}
+
+.category-page .btn-warning:hover {
+    background-color: #e0a800;
+    border-color: #d39e00;
+}
+
+.category-page .btn-danger {
+    background-color: #dc3545;
+    border-color: #dc3545;
+}
+
+.category-page .btn-danger:hover {
+    background-color: #c82333;
+    border-color: #bd2130;
+}
+
+/* Form styles for create/edit category */
+.category-page .form-group label {
+    color: #fff;
+}
+
+.category-page .form-control {
+    border-radius: 5px;
+}
+
+.category-page .btn-block {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+}
+
+.category-page a {
+    color: #007bff;
+}
+
+.category-page a:hover {
+    color: #0056b3;
+    text-decoration: none;
+}
+
+/* ================================================================
+   Table Styles
+   ================================================================ */
+
+/* Styling umum untuk semua tabel */
+.table {
+    width: 100%;
+    margin-bottom: 1rem;
+    color: #212529; /* Warna teks gelap untuk keterbacaan */
+    background-color: rgba(255, 255, 255, 0.9); /* Latar belakang putih semi-transparan */
+    border-collapse: collapse; /* Menghilangkan jarak antar sel */
+    border: 1px solid #dee2e6; /* Border tabel */
+    border-radius: 5px; /* Membuat sudut tabel melengkung */
+    overflow: hidden; /* Untuk menghindari konten meluap */
+}
+
+/* Header tabel */
+.table th {
+    padding: 0.75rem;
+    background-color: #f8f9fa; /* Latar belakang header lebih gelap */
+    border-bottom: 2px solid #dee2e6; /* Border bawah header */
+    text-align: left;
+    font-weight: bold;
+    color: #333; /* Warna teks header lebih gelap */
+}
+
+/* Isi tabel */
+.table td {
+    padding: 0.75rem;
+    border-bottom: 1px solid #dee2e6; /* Border bawah sel */
+}
+
+/* Warna latar belakang baris genap */
+.table tbody tr:nth-child(even) {
+    background-color: #f2f2f2; /* Warna latar belakang baris genap */
+}
+
+/* Hover effect untuk baris tabel */
+.table tbody tr:hover {
+    background-color: #e9ecef; /* Warna saat baris di-hover */
+}
+
+/* Mengatur tombol di dalam tabel */
+.table .btn {
+    margin-right: 5px;
+}
+
+/* Responsif untuk layar kecil */
+@media (max-width: 767.98px) {
+    .table-responsive {
+        overflow-x: auto;
+    }
+}
+
+/* ================================================================
+   Button Styles
+   ================================================================ */
+
+/* Tombol utama */
+.btn-primary {
+    color: #fff !important; /* Warna teks putih */
+    background-color: #007bff; /* Latar belakang biru */
+    border-color: #007bff;
+}
+
+.btn-primary:hover {
+    color: #fff; /* Warna teks tetap putih saat hover */
+    background-color: #0056b3; /* Warna latar belakang saat hover */
+    border-color: #0056b3;
+}
+
+.btn-primary:focus,
+.btn-primary:active {
+    color: #fff; /* Warna teks tetap putih saat fokus atau aktif */
+    background-color: #0056b3;
+    border-color: #0056b3;
+}
+
+/* Pastikan tidak ada gaya lain yang menimpa */
+.btn-primary:visited {
+    color: #fff;
+}
