@@ -1,6 +1,6 @@
 # Supply Chain Information System for Food and Beverages in Java Region
 
-![Laravel](https://img.shields.io/badge/Laravel-8.x-blue.svg)
+![Laravel](https://img.shields.io/badge/Laravel-11.0-blue.svg)
 ![PHP](https://img.shields.io/badge/PHP-7.4%2B-blue.svg)
 ![Pentaho](https://img.shields.io/badge/Pentaho-10.2-orange.svg)
 ![GitHub License](https://img.shields.io/github/license/putuangga-k/Database-Final-Project.svg)
