@@ -110,26 +110,12 @@ Follow these steps to set up the project locally:
     - Open the `.env` file and configure the following settings:
 
         ```env
-        APP_NAME="Supply Chain Information System"
-        APP_ENV=local
-        APP_KEY=base64:GENERATE_KEY
-        APP_DEBUG=true
-        APP_URL=http://localhost
-
-        LOG_CHANNEL=stack
-
         DB_CONNECTION=mysql
         DB_HOST=127.0.0.1
         DB_PORT=3306
         DB_DATABASE=your_database_name
         DB_USERNAME=your_database_user
         DB_PASSWORD=your_database_password
-
-        # Pentaho Configuration
-        PENTAHO_HOST=your_pentaho_host
-        PENTAHO_PORT=your_pentaho_port
-        PENTAHO_USERNAME=your_pentaho_username
-        PENTAHO_PASSWORD=your_pentaho_password
         ```
 
 7. **Generate Application Key**
@@ -171,7 +157,6 @@ After installation, you may need to perform additional configurations:
 Ensure all necessary environment variables are set in the `.env` file, especially those related to:
 
 - **Database Connection:** Verify `DB_DATABASE`, `DB_USERNAME`, and `DB_PASSWORD`.
-- **Pentaho Integration:** Ensure `PENTAHO_HOST`, `PENTAHO_PORT`, `PENTAHO_USERNAME`, and `PENTAHO_PASSWORD` are correctly configured.
 
 ### Scheduled Tasks
 
@@ -248,7 +233,7 @@ Contributions are welcome! Please follow these steps to contribute to the projec
    ```
 
 7. Create a Pull Request
-   Navigate to the original repository and click on "Compare & pull request" to submit your changes for        review.
+   Navigate to the original repository and click on "Compare & pull request" to submit your changes for review.
 
 ### License
 This project is licensed under the MIT License.
