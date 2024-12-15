@@ -2,7 +2,7 @@
 
 ![Laravel](https://img.shields.io/badge/Laravel-8.x-blue.svg)
 ![PHP](https://img.shields.io/badge/PHP-7.4%2B-blue.svg)
-![Pentaho](https://img.shields.io/badge/Pentaho-9.x-orange.svg)
+![Pentaho](https://img.shields.io/badge/Pentaho-10.2-orange.svg)
 ![GitHub License](https://img.shields.io/github/license/putuangga-k/Database-Final-Project.svg)
 
 ## Table of Contents
