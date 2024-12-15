@@ -19,7 +19,7 @@
 
 The **Supply Chain Information System for Food and Beverages in Java Region** is a comprehensive application designed to streamline and manage the supply chain processes within the food and beverage industry in the Java region. This system provides real-time insights, enhances operational efficiency, and facilitates data-driven decision-making.
 
-## Team Members:
+## Team 4 SD-A1 Members:
 - Alun Yuanita Indraswari (164221001)
 - Romero Rachmat Musadat (164221070)
 - Putu Angga Kurniawan (164221098)
