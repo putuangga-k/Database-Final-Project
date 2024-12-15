@@ -4,6 +4,16 @@
 @section('title', 'Dashboard')
 
 @section('content')
+    <!-- Definisikan Nama Kategori di PHP -->
+    @php
+        $categoryNames = [
+            1 => 'Ayam',
+            2 => 'Tepung',
+            3 => 'Saus',
+            4 => 'Packaging'
+        ];
+    @endphp
+
     <!-- Sambutan -->
     <div class="mt-4">
         <h1>Selamat Datang, {{ Auth::user()->name }}!</h1>
@@ -50,20 +60,8 @@
         </div>
     </div>
 
-    <!-- Grafik Pembelian dan Kuantitas Inventaris -->
-    <div class="row">
-        <!-- Grafik Pembelian -->
-        <div class="col-md-6">
-            <div class="card bg-dark text-white mb-4">
-                <div class="card-header bg-primary text-white">
-                    <h4>Grafik Pembelian per Bulan</h4>
-                </div>
-                <div class="card-body">
-                    <canvas id="pembelianChart" style="height: 400px;"></canvas>
-                </div>
-            </div>
-        </div>
-        <!-- Grafik Kuantitas Inventaris Produk -->
+    <!-- Grafik Kuantitas Inventaris Produk - Diletakkan di Tengah -->
+    <div class="row justify-content-center">
         <div class="col-md-6">
             <div class="card bg-dark text-white mb-4">
                 <div class="card-header bg-warning text-white">
@@ -159,13 +157,13 @@
                 <div class="col-md-6">
                     <div class="card bg-dark text-white">
                         <div class="card-header bg-secondary text-white d-flex justify-content-between align-items-center">
-                            <h4>Harga Total per Stokis (Kategori {{ $selectedCategory }})</h4>
+                            <h4>Harga Total per Stokis (Kategori {{ $categoryNames[$selectedCategory] }})</h4>
                             <!-- Dropdown Pilih Kategori ditempatkan di sebelah judul -->
                             <div>
                                 <label for="cat" class="mr-2">Pilih Kategori:</label>
                                 <select name="cat" id="cat" class="form-control d-inline-block" style="width: auto;">
-                                    @foreach([1,2,3,4] as $c)
-                                        <option value="{{ $c }}" {{ $selectedCategory == $c ? 'selected' : '' }}>Category {{ $c }}</option>
+                                    @foreach($categoryNames as $c => $name)
+                                        <option value="{{ $c }}" {{ $selectedCategory == $c ? 'selected' : '' }}>{{ $name }}</option>
                                     @endforeach
                                 </select>
                             </div>
@@ -202,11 +200,42 @@
     </div>
 @endsection
 
+@section('styles')
+    <style>
+        .bg-purple {
+            background-color: #6f42c1; 
+        }
+    </style>
+@endsection
+
 @section('scripts')
     <!-- Tambahkan Chart.js dari CDN -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script>
-        // Definisi Warna untuk Chart
+        // Definisikan Nama Kategori di JavaScript
+        const categoryNames = @json($categoryNames);
+
+        // Definisikan Warna untuk Setiap Kategori
+        const categoryColors = {
+            1: { // Ayam
+                backgroundColor: 'rgba(255, 99, 132, 0.8)', // Merah
+                borderColor: 'rgba(255, 99, 132, 1)'
+            },
+            2: { // Tepung
+                backgroundColor: 'rgba(54, 162, 235, 0.8)', // Biru
+                borderColor: 'rgba(54, 162, 235, 1)'
+            },
+            3: { // Saus
+                backgroundColor: 'rgba(75, 192, 192, 0.8)', // Hijau
+                borderColor: 'rgba(75, 192, 192, 1)'
+            },
+            4: { // Packaging
+                backgroundColor: 'rgba(255, 206, 86, 0.8)', // Kuning
+                borderColor: 'rgba(255, 206, 86, 1)'
+            }
+        };
+
+        // Definisi Warna untuk Chart Lain
         const chartColors = {
             primary: 'rgba(54, 162, 235, 0.8)',
             primaryBorder: 'rgba(54, 162, 235, 1)',
@@ -318,33 +347,6 @@
                 }
             };
         }
-
-        // --- Grafik Pembelian ---
-        var pembelianLabels = {!! json_encode($pembelianLabels) !!};
-        var pembelianData = {!! json_encode($pembelianData) !!};
-
-        var pembelianCtx = document.getElementById('pembelianChart').getContext('2d');
-        var pembelianChart = new Chart(pembelianCtx, {
-            type: 'line',
-            data: {
-                labels: pembelianLabels,
-                datasets: [{
-                    label: 'Pembelian per Bulan',
-                    data: pembelianData,
-                    backgroundColor: chartColors.primary,
-                    borderColor: chartColors.primaryBorder,
-                    fill: true,
-                    tension: 0.1,
-                    pointRadius: 5,
-                    pointBackgroundColor: chartColors.primaryBorder,
-                    pointBorderColor: '#fff',
-                    pointHoverRadius: 7,
-                    pointHoverBackgroundColor: '#fff',
-                    pointHoverBorderColor: chartColors.primaryBorder
-                }]
-            },
-            options: getChartOptions('Bulan', 'Jumlah Pembelian')
-        });
 
         // --- Grafik Kuantitas Inventaris Produk ---
         var inventarisLabels = {!! json_encode($inventarisLabels) !!};
@@ -466,34 +468,15 @@
             data: {
                 labels: stokisLabels.map(s => `Stokis ${s}`),
                 datasets: [
-                    {
-                        label: 'Category 1',
-                        data: categoryData[1],
-                        backgroundColor: chartColors.danger,
-                        borderColor: chartColors.dangerBorder,
-                        borderWidth: 2
-                    },
-                    {
-                        label: 'Category 2',
-                        data: categoryData[2],
-                        backgroundColor: chartColors.primary,
-                        borderColor: chartColors.primaryBorder,
-                        borderWidth: 2
-                    },
-                    {
-                        label: 'Category 3',
-                        data: categoryData[3],
-                        backgroundColor: chartColors.success,
-                        borderColor: chartColors.successBorder,
-                        borderWidth: 2
-                    },
-                    {
-                        label: 'Category 4',
-                        data: categoryData[4],
-                        backgroundColor: chartColors.info,
-                        borderColor: chartColors.infoBorder,
-                        borderWidth: 2
-                    }
+                    @foreach($categoryNames as $c => $name)
+                        {
+                            label: '{{ $name }}',
+                            data: categoryData[{{ $c }}],
+                            backgroundColor: categoryColors[{{ $c }}].backgroundColor,
+                            borderColor: categoryColors[{{ $c }}].borderColor,
+                            borderWidth: 2
+                        },
+                    @endforeach
                 ]
             },
             options: {
@@ -629,7 +612,7 @@
             data: {
                 labels: stokisListForHarga.map(s => `Stokis ${s}`),
                 datasets: [{
-                    label: `Harga Total (Category {{ $selectedCategory }})`,
+                    label: `Harga Total (${categoryNames[{{ $selectedCategory }}]})`,
                     data: pengirimanHargaData,
                     backgroundColor: chartColors.warning,
                     borderColor: chartColors.warningBorder,
