@@ -56,6 +56,7 @@ Route::middleware('auth')->group(function () {
     Route::get('inventaris', [InventarisController::class, 'index'])->name('inventaris.index');
     Route::resource('categories', CategoryController::class);
     Route::resource('vendor_prices', VendorPriceController::class);
+    Route::post('vendor_prices/import', [VendorPriceController::class, 'import'])->name('vendor_prices.import');
     Route::resource('locations', LocationController::class);
     Route::get('/fakta_penjualan', [FaktaPenjualanController::class, 'index'])->name('fakta_penjualan');
     Route::get('/dashboard.info', [DashboardController::class, 'index'])->name('dashboard.info');
