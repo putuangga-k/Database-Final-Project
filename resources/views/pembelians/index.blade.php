@@ -25,7 +25,7 @@
                         {{-- <th>Vendor</th>
                         <th>Tanggal Pembelian</th> --}}
                         <th>Quantitas</th>
-                        <th>Total Harga</th>
+                        {{-- <th>Total Harga</th> --}}
                         <th>Aksi</th>
                     </tr>
                 </thead>
@@ -37,7 +37,7 @@
                             {{-- <td>{{ $pembelian->vendor->vendor_nama }}</td>
                             <td>{{ $pembelian->tanggal_pembelian }}</td> --}}
                             <td>{{ $pembelian->quantitas_produk }}</td>
-                            <td>Rp{{ number_format($pembelian->total_harga, 2, ',', '.') }}</td>
+                            {{-- <td>Rp{{ number_format($pembelian->total_harga, 2, ',', '.') }}</td> --}}
                             <td>
                                 <a href="{{ route('pembelians.show', $pembelian) }}" class="btn btn-info btn-sm">Lihat</a>
                                 <a href="{{ route('pembelians.edit', $pembelian) }}" class="btn btn-warning btn-sm">Edit</a>

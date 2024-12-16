@@ -18,7 +18,7 @@
     @endif
 
     {{-- Formulir Impor CSV --}}
-    <div class="card mb-4">
+    {{-- <div class="card mb-4">
         <div class="card-header bg-primary text-white">
             Import Harga Harian dari CSV
         </div>
@@ -33,12 +33,12 @@
                 <button type="submit" class="btn btn-success">Impor CSV</button>
             </form>
         </div>
-    </div>
+    </div> --}}
 
     {{-- Formulir Tambah Entri Manual --}}
     <div class="card">
         <div class="card-header bg-success text-white">
-            Tambah Harga Harian Secara Manual
+            Tambah Harga Harian Vendor
         </div>
         <div class="card-body">
             <form action="{{ route('vendor_prices.store') }}" method="POST">

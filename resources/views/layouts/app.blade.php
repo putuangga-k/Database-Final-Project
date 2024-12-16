@@ -88,7 +88,7 @@
                     <a href="{{ route('vendor_prices.index') }}">Harga Harian Vendor</a>
                 </li>
                 <li>
-                    <a href="{{ route('dashboard.info') }}">Dashboard Lama</a>
+                    <a href="{{ route('stokis_sold.index') }}">Stokis Sold</a>
                 </li>                
             </ul>
         </nav>

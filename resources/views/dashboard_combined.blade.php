@@ -17,7 +17,7 @@
     <!-- Sambutan -->
     <div class="mt-4">
         <h1>Selamat Datang, {{ Auth::user()->name }}!</h1>
-        <p class="lead">Ini adalah dashboard Anda. Silakan pilih menu di sidebar untuk mengelola data.</p>
+        <p class="lead">Silakan Pilih dari Dropdown Menu untuk Informasi Lebih Lanjut!</p>
     </div>
 
     <!-- Statistik Utama -->

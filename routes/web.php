@@ -17,6 +17,7 @@ use App\Http\Controllers\VendorPriceController;
 use App\Http\Controllers\LocationController;
 use App\Http\Controllers\FaktaPenjualanController;
 use App\Http\Controllers\CombinedDashboardController;
+use App\Http\Controllers\StokisSoldController;
 
 Route::middleware('guest')->group(function () {
     // Halaman login
@@ -61,4 +62,5 @@ Route::middleware('auth')->group(function () {
     Route::get('/fakta_penjualan', [FaktaPenjualanController::class, 'index'])->name('fakta_penjualan');
     Route::get('/dashboard.info', [DashboardController::class, 'index'])->name('dashboard.info');
     Route::get('/dashboard.combined', [CombinedDashboardController::class, 'index'])->name('dashboard.combined');
+    Route::get('/stokis-sold', [StokisSoldController::class, 'index'])->name('stokis_sold.index');
 });
